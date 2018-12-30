@@ -121,6 +121,7 @@
         /* 自动换行 */
       flex-wrap: wrap; 
     }   
+
  /* 三个子元素的宽度100% */
    #mainContent>*{
      width: 100%;
