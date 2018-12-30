@@ -1,0 +1,128 @@
+   /* 公共样式 */
+   html,body,#app,#home,#loginbox{
+    margin: 0;
+    height: 100%;
+  }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+    /* 右边内容 */
+    .el-main{
+        max-height: 420px;
+    }
+    /* input框 */
+    .el-input__inner{
+        width: 30%;
+      }
+      /* 按钮 */
+      .el-button--primary{
+         background-color: rgb(110,176,0);
+         border: none;
+      }
+      .el-button--primary:hover{
+        background-color: rgb(110,176,0);
+      }
+  /* ----------------------------左侧------------------------ */
+  /* 左侧自定义样式 */
+  .el-aside {
+      background:url("../images/leftBG.png") repeat-y;       
+      font-size: 14px;
+      text-align: right;     
+    }
+  #leftTitle{
+      color: #fff;
+      padding-right: 20px;
+    }
+    #leftTitle span{
+        color: #888;
+    } 
+    #leftTitle h1{
+        letter-spacing: 2px;
+        font-size: 22px;    
+        padding:28px 0; 
+    }
+ /* 左侧菜单 */
+ .el-submenu__title{
+     background: url('../images/menuBG.png') repeat-x;
+     height: 33px;
+     line-height: 33px;
+     color: #fff; 
+     padding-right: 20px;    
+     margin-bottom: 10px;
+     border-radius: 6px 0 0 6px;    
+ }
+  
+ /* 箭头 */
+ .el-submenu__icon-arrow{
+     display: none;
+ }
+ .el-menu{
+     background-color:transparent;
+     border: none;
+     width: 206px;
+     margin-left: 24px; 
+ }
+/* 子菜单 */
+ .el-menu--inline{
+   margin-left: 0;
+}
+/* 子菜单的行高和高度 */
+.el-submenu .el-menu-item{
+    height: 30px;
+    line-height: 30px;
+    color: #aaa;
+    padding-right:20px;
+    border-radius: 6px 0 0 6px;
+    margin-bottom:6px;    
+}
+/* 激活的样式 */
+.el-menu-item.is-active{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.el-menu-item:hover, .el-menu-item:focus {
+    font-weight: bold;
+    color:#fff;
+    background-color:rgba(255, 255, 255, 0.5);
+}
+/* ---------------------------右侧------------------------------- */
+  /* 右侧顶部和底部 */
+  .el-header, .el-footer {    
+    color: #333; 
+    background: #f9f9f9;
+    margin: 0;
+  }
+  .el-header{   
+    padding-top: 40px;
+  }
+  .el-footer p{    
+    border-top:1px solid #ccc;
+    line-height: 50px;
+   
+  }
+  /* 右侧内容 */
+  .el-main .el-card__header { 
+      background: linear-gradient(#eee,#e5e5e5);  
+      color: #333;          
+  }
+  .el-main .el-card__header h3{
+      margin: 0;
+      height: 40px;
+      line-height: 40px;
+  }
+  /* 警告框提示 */
+  .el-alert{
+     margin-bottom:10px; 
+  }
+ 
+  /* flex伸缩布局 */
+   #mainContent{
+      display: flex;
+        /* 自动换行 */
+      flex-wrap: wrap; 
+    }   
+ /* 三个子元素的宽度100% */
+   #mainContent>*{
+     width: 100%;
+ }  
+    
