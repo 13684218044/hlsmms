@@ -3,7 +3,7 @@
         <div id='leftTitle'>
           <h1>华联超市管理系统</h1>
           <p><span>您好,</span> admin</p>
-          <p><router-link to='/'>管理首页</router-link> | <a>退出系统</a></p>
+          <p><router-link to='/'>管理首页</router-link> | <a href="javascript:void(0)" @click="loginOut()">退出系统</a></p>
         </div>
         <!-- 左侧菜单 -->         
           <el-menu
@@ -100,6 +100,21 @@ export default {
     },
     handleClose(key, keyPath) {
       //console.log(key, keyPath);
+    },
+    loginOut(){
+      //发起ajax到后端路由去执行清除cookie的操作
+      this.axios.get("http://127.0.0.1:9090/users/loginOut").then(result=>{
+         //根据是否清除成功处理业务逻辑
+         if(result.data.isok){
+           this.$message({
+             message:'退出成功！',
+             type:'success'
+           });
+           this.$router.push("/login");
+         }  
+      }).catch(err=>{
+        console.log(err);      
+      })
     }
   }
 }
