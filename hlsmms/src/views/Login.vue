@@ -71,7 +71,7 @@ export default {
           this.axios.defaults.withCredentials = true;
      
           this.axios
-            .post("http://127.0.0.1:9090/users/checkLogin",this.qs.stringify(this.ruleForm2))
+            .post(this.apiHost+"/users/checkLogin",this.qs.stringify(this.ruleForm2))
             .then(result => {
               if (result.data.isok) {
                 //登录成功

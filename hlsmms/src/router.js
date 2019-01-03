@@ -39,12 +39,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "pointsadd" */ './views/PointsAdd.vue')
     },
     {
-      path: '/commoditylist',  
-      component: () => import(/* webpackChunkName: "commoditylist" */ './views/CommodityList.vue')
+      path: '/goodslist',  
+      component: () => import(/* webpackChunkName: "goodslist" */ './views/GoodsList.vue')
     },
     {
-      path: '/commodityadd',  
-      component: () => import(/* webpackChunkName: "commodityadd" */ './views/CommodityAdd.vue')
+      path: '/goodsadd',  
+      component: () => import(/* webpackChunkName: "goodsadd" */ './views/GoodsAdd.vue')
     },
     {
       path: '/stocklist',  

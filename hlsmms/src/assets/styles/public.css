@@ -20,15 +20,32 @@
     }
     .el-select .el-input--suffix{
         width: 100%;
-    }  
-      /* 按钮 */
-      .el-button--primary{
-         background-color: rgb(110,176,0);
-         border: none;
-      }
-      .el-button--primary:hover{
+    } 
+    /* 搜索框的关键词 */
+    #keywords{
+        width: 300%;
+    }
+    /* 搜索下面的分割盒子 */
+    #searchBox{
+        border: solid 1px #ccc;
+        height: 1px;
+    }
+    /* 分页的盒子 */
+    #pagerBox{
+        margin: 15px auto;
+    }
+    /* 修改当前激活页样式 */
+    .el-pagination.is-background .el-pager li:not(.disabled).active{
+        background-color: #50b41a;
+    }
+    /* 按钮 */
+    .el-button--primary{
         background-color: rgb(110,176,0);
-      }
+        border: none;
+    }
+    .el-button--primary:hover{
+    background-color: rgb(110,176,0);
+    }
   /* ----------------------------左侧------------------------ */
   /* 左侧自定义样式 */
   .el-aside {

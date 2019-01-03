@@ -114,7 +114,7 @@ export default {
           console.log(this.ruleForm2);
           //2）使用axios发送请求到后端api:   http://172.16.4.254:9090/users/useradd  
           this.axios.post(
-            'http://127.0.0.1:9090/users/useradd',
+            this.apiHost+'/users/useradd',
             this.qs.stringify(this.ruleForm2)//使用qs处理post的参数
             ).then(result=>{
               console.log('服务器成功返回的结果',result);

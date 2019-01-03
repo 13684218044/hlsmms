@@ -154,10 +154,10 @@ export default {
           //1）获取用户数据
           //console.log(this.ruleForm2);
           //alert("修改验证通过!!!");
-          //2)前端——收集新的数据并发起ajax请求到后端api:   http://172.16.4.254:9090/user/usersave
+          //2)前端——收集新的数据并发起ajax请求到后端api:  
           this.axios
             .post(
-              "http://127.0.0.1:9090/users/usersave",
+              this.apiHost+"/users/usersave",
               this.qs.stringify(this.ruleForm2)
             )
             .then(result => {
@@ -188,7 +188,7 @@ export default {
     //获取用户数据的方法
     getusers() {
       this.axios
-        .get("http://127.0.0.1:9090/users/getusers")
+        .get(this.apiHost+"/users/getusers")
         .then(result => {
           //console.log("后端返回的数据",result.data);
           this.tableData = result.data; //把返回的数据赋值给表格数据属性
@@ -203,7 +203,7 @@ export default {
       //console.log(userid);
       // (2)前端——发起ajax请求到后端获取旧的数据
       this.axios
-        .get("http://127.0.0.1:9090/users/getuserbyid?userid=" + userid)
+        .get(this.apiHost+"/users/getuserbyid?userid=" + userid)
         .then(oldUserData => {
          // console.log("服务器返回的结果", oldUserData);
           // (5)前端——把旧的数据回填的表单中
@@ -218,30 +218,39 @@ export default {
     },
     //实现删除功能
     handleDelete(userid) {
-      // 1.前端——点击删除按钮：绑定事件执行删除的方法，根据id执行删除
-      console.log("删除用户的id", userid);
-      // 2.前端——发起ajax请求到后端
-      this.axios
-        .get("http://127.0.0.1:9090/users/deluser?userid=" + userid)
-        .then(result => {
-         // console.log("服务器返回的结果", result);
-          // 6.前端——根据返回的结果处理业务逻辑（删除成功就更新用户列表）
-          result = result.data;
-          //删除成功
-          if (result.isok) {
-            this.$message({
-              message: result.msg,
-              type: "success"
-            });
-            this.getusers(); //调用方法
-          } else {
-            this.$message.error("出错了：" + result.msg);
-          }
+        this.$confirm("确认要删除该用户, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+      .then(()=>{
+        
+        // 1.前端——点击删除按钮：绑定事件执行删除的方法，根据id执行删除
+        console.log("删除用户的id", userid);
+        // 2.前端——发起ajax请求到后端
+        this.axios
+          .get(this.apiHost+"/users/deluser?userid=" + userid)
+          .then(result => {
+           // console.log("服务器返回的结果", result);
+            // 6.前端——根据返回的结果处理业务逻辑（删除成功就更新用户列表）
+            result = result.data;
+            //删除成功
+            if (result.isok) {
+              this.$message({
+                message: result.msg,
+                type: "success"
+              });
+              this.getusers(); //调用方法
+            } else {
+              this.$message.error("出错了：" + result.msg);
+            }
+          })
+          .catch(err => {
+            this.$message.error("出错了：" + err.message); //调用消息框给用户提示
+          });
         })
-        .catch(err => {
-          this.$message.error("出错了：" + err.message); //调用消息框给用户提示
-        });
-    },
+        .catch(()=>{});
+      },
     //关闭对话框的确认方法
     handleClose(done) {
       this.$confirm("确认关闭？")
@@ -254,7 +263,7 @@ export default {
   //组件实例化之后执行的钩子
   created() {
     // this.axios
-    //   .get("http://127.0.0.1:9090/users/getusers")
+    //   .get(this.apiHost+"/users/getusers")
     //   .then(result => {
     //    console.log("后端返回的数据", result.data);
     //     this.tableData = result.data; //把返回的数据赋值给表格数据属性

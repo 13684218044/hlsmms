@@ -26,8 +26,8 @@
                 <template slot="title">                  
                   <span>商品管理</span>
                 </template>                           
-                <el-menu-item index="/commoditylist"><router-link to="/commoditylist">商品管理</router-link></el-menu-item>
-                <el-menu-item index="/commodityadd"><router-link to="commodityadd">添加商品</router-link></el-menu-item>                                   
+                <el-menu-item index="/goodslist"><router-link to="/goodslist">商品管理</router-link></el-menu-item>
+                <el-menu-item index="/goodsadd"><router-link to="/goodsadd">添加商品</router-link></el-menu-item>                                   
               </el-submenu>   
               <!-- 第3个菜单 -->
               <el-submenu index="3">
